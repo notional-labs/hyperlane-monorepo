@@ -4991,6 +4991,7 @@ __metadata:
     "@hyperlane-xyz/utils": "npm:3.11.1"
     "@layerzerolabs/lz-evm-oapp-v2": "npm:2.0.2"
     "@layerzerolabs/solidity-examples": "npm:^1.1.0"
+    "@nomicfoundation/hardhat-foundry": "npm:^1.1.1"
     "@nomiclabs/hardhat-ethers": "npm:^2.2.3"
     "@nomiclabs/hardhat-waffle": "npm:^2.0.6"
     "@openzeppelin/contracts": "npm:^4.9.3"
@@ -6632,6 +6633,17 @@ __metadata:
     mcl-wasm: "npm:^0.7.1"
     rustbn.js: "npm:~0.2.0"
   checksum: 7ad391bc68e8e755ed0b88012e8857390590b5ba8b11bdb4995b04ba7afed5570a4259b85fff329affb643e87be12972ca44d269e14e5f840a82c315011d0d7a
+  languageName: node
+  linkType: hard
+
+"@nomicfoundation/hardhat-foundry@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "@nomicfoundation/hardhat-foundry@npm:1.1.1"
+  dependencies:
+    chalk: "npm:^2.4.2"
+  peerDependencies:
+    hardhat: ^2.17.2
+  checksum: 98e77640fc32a21ada887a6d53825c2407c0b142a36552d792f0b12a75cdb2fd4210801d31c50fea3f49b9dd4c419eace8ed0b483fb677dcb69c0e3c410f0ced
   languageName: node
   linkType: hard
 
