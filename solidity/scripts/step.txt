@@ -42,3 +42,20 @@ Step 5: Deploy unknown contract 0xd007af47c6ea259af3ae0fccf5fce56bae0c70bba0b7f7
 
 Step 6: Set Required Hook in Mailbox => ProtocolFee
 Step 7: Set Default Hook Mailbox => the address that return from step 3
+
+Hooks
+// Default
+"fallbackRoutingHook": "0x571f1435613381208477ac5d6974310d88AC7cB7",
+
+// Create 0x19b2cF952b70b217c90FC408714Fbc1acD29A6A8 = 3 hook bellow, then call fallbackRoutingHook setHook
+"pausableHook": "0x3A66Dc852e56d3748838b3C27CF381105b83705b",
+"merkleTreeHook": "0x48e6c30B97748d1e2e03bf3e9FbE3890ca5f8CCA",
+"interchainGasPaymaster": "0x9e6B1022bE9BBF5aFd152483DAD9b88911bC8611",
+
+// Required
+"protocolFee": "0x8B05BF30F6247a90006c5837eA63C7905D79e6d8"
+
+// ISM
+staticMerkleRootMultisigIsmFactory
+staticMessageIdMultisigIsmFactory
+=> deploy with new val address => set default ism at mailbox

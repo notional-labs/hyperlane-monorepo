@@ -73,8 +73,8 @@ async function deployContract(name, args, label, options, lib) {
   console.info(`Deploying ${info} ${address} ${argStr}`);
   await contract.deployed();
 
-  console.info(`Verifying ${address}`);
-  await verify(address, args);
+  // console.info(`Verifying ${address}`);
+  // await verify(address, args);
 
   const addresses = [];
   if (name === 'FaucetToken') {
@@ -105,7 +105,9 @@ async function deployContractWithProxy(name, args, label, lib) {
   if (contracts[name]) {
     contract = await upgrades.upgradeProxy(contracts[name], contractFactory);
   } else {
-    contract = await upgrades.deployProxy(contractFactory, args);
+    contract = await upgrades.deployProxy(contractFactory, args, {
+      unsafeAllow: 'state-variable-immutable constructor',
+    });
   }
 
   const argStr = args.map((i) => `"${i}"`).join(' ');
@@ -113,13 +115,13 @@ async function deployContractWithProxy(name, args, label, lib) {
   console.info(`Deploy proxy ${info} ${address} ${argStr}`);
   await contract.deployed();
 
-  console.info(`Verifying ${address}`);
+  // console.info(`Verifying ${address}`);
   // if (protocol[name]) {
   //   await verify(address)
   // }else{
   //   await verify(address)
   // }
-  await verify(address);
+  // await verify(address);
 
   if (!contracts[name]) {
     const addresses = [];

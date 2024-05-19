@@ -4996,9 +4996,12 @@ __metadata:
     "@nomiclabs/hardhat-waffle": "npm:^2.0.6"
     "@openzeppelin/contracts": "npm:^4.9.3"
     "@openzeppelin/contracts-upgradeable": "npm:^v4.9.3"
+    "@openzeppelin/hardhat-upgrades": "npm:^1.22.1"
     "@typechain/ethers-v5": "npm:^11.1.2"
     "@typechain/hardhat": "npm:^9.1.0"
+    axios: "npm:^1.7.0"
     chai: "npm:^4.3.6"
+    dotenv: "npm:^16.4.5"
     ethereum-waffle: "npm:^4.0.10"
     ethers: "npm:^5.7.2"
     hardhat: "npm:^2.22.2"
@@ -5010,7 +5013,6 @@ __metadata:
     solidity-coverage: "npm:^0.8.3"
     ts-generator: "npm:^0.1.1"
     ts-node: "npm:^10.8.0"
-    typechain: "patch:typechain@npm%3A8.3.2#~/.yarn/patches/typechain-npm-8.3.2-b02e27439e.patch"
     typescript: "npm:5.3.3"
   peerDependencies:
     "@ethersproject/abi": "*"
@@ -6881,7 +6883,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@openzeppelin/hardhat-upgrades@npm:^1.18.3":
+"@openzeppelin/hardhat-upgrades@npm:^1.18.3, @openzeppelin/hardhat-upgrades@npm:^1.22.1":
   version: 1.28.0
   resolution: "@openzeppelin/hardhat-upgrades@npm:1.28.0"
   dependencies:
@@ -10202,6 +10204,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axios@npm:^1.7.0":
+  version: 1.7.0
+  resolution: "axios@npm:1.7.0"
+  dependencies:
+    follow-redirects: "npm:^1.15.6"
+    form-data: "npm:^4.0.0"
+    proxy-from-env: "npm:^1.1.0"
+  checksum: fc97719eb1024626cf3ae716eed136964faea712cd750642c2693c8bf3843d342a9e373704d08319a851931b39ca318d2004f0ab4ca67f434f095754dc4aecee
+  languageName: node
+  linkType: hard
+
 "babel-jest@npm:^29.7.0":
   version: 29.7.0
   resolution: "babel-jest@npm:29.7.0"
@@ -12345,6 +12358,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dotenv@npm:^16.4.5":
+  version: 16.4.5
+  resolution: "dotenv@npm:16.4.5"
+  checksum: 55a3134601115194ae0f924e54473459ed0d9fc340ae610b676e248cca45aa7c680d86365318ea964e6da4e2ea80c4514c1adab5adb43d6867fb57ff068f95c8
+  languageName: node
+  linkType: hard
+
 "duplexer3@npm:^0.1.4":
   version: 0.1.4
   resolution: "duplexer3@npm:0.1.4"
@@ -13960,6 +13980,16 @@ __metadata:
     debug:
       optional: true
   checksum: 60d98693f4976892f8c654b16ef6d1803887a951898857ab0cdc009570b1c06314ad499505b7a040ac5b98144939f8597766e5e6a6859c0945d157b473aa6f5f
+  languageName: node
+  linkType: hard
+
+"follow-redirects@npm:^1.15.6":
+  version: 1.15.6
+  resolution: "follow-redirects@npm:1.15.6"
+  peerDependenciesMeta:
+    debug:
+      optional: true
+  checksum: 70c7612c4cab18e546e36b991bbf8009a1a41cf85354afe04b113d1117569abf760269409cb3eb842d9f7b03d62826687086b081c566ea7b1e6613cf29030bf7
   languageName: node
   linkType: hard
 
