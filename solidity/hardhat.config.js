@@ -15,6 +15,16 @@ module.exports = {
       chainId: 11155111,
       accounts: [process.env.DEPLOYER_PRIVATE_KEY],
     },
+    ethereum: {
+      url: 'https://ethereum.publicnode.com',
+      chainId: 1,
+      accounts: [process.env.DEPLOYER_PRIVATE_KEY],
+    },
+    bob: {
+      url: 'https://rpc.gobob.xyz/',
+      chainId: 60808,
+      accounts: [process.env.DEPLOYER_PRIVATE_KEY],
+    },
     bobtestnet: {
       url: 'https://testnet.rpc.gobob.xyz/',
       chainId: 111,

@@ -7,34 +7,41 @@ const {
 } = require('./shared/helpers');
 const axios = require('axios');
 
-// const RPC = "https://testnet.rpc.gobob.xyz/"
-const RPC = 'https://rpc.sepolia.org';
+const RPC = 'https://rpc.gobob.xyz/';
 async function main() {
-  const owner = '0xD227Ed60eEE10c535Ac2878E0e29C1F8541529fA';
-  const beneficiary = '0xD227Ed60eEE10c535Ac2878E0e29C1F8541529fA';
+  const owner = '0x34D42b0acdfa33cFCa6847B5280db425F1b75f74';
+  const beneficiary = '0x34D42b0acdfa33cFCa6847B5280db425F1b75f74';
 
-  // // BOB Testnet
-  // const destinationChainID = 1;
-  // const merkleTreeHook = '0xC4fa1cd4C2eA72A85BCF470E8676E476cE9ec546'
-  // const staticAggregationHookFactoryAddress = '0xAcFc3aBA907Ddd4b3D521eCF2AA784320913e985';
-  // const mailBoxAddress = '0x17D96Fb09Ddb21bd86d03514E4694329F9EB3f9E';
-
-  // // BOB Testnet
-  const destinationChainID = 111;
-  const merkleTreeHook = '0x954F2bD430e1e0A852D85EAF1Dd43ebc128EBA51';
+  // BOB
+  const destinationChainID = 1;
+  const merkleTreeHook = '0xac049982f277C8e3138987dB55B30b2b7571c975';
   const staticAggregationHookFactoryAddress =
-    '0x160C28C92cA453570aD7C031972b58d5Dd128F72';
-  const mailBoxAddress = '0x08461a059EFE3193916Cd21f77E9f01ceF1E4c7c';
+    '0xc4b65038Fb9574893f9277DFa8040640De7960E4';
+  const mailBoxAddress = '0xAf49cC8Dc2c673F71c1E755fd63A2E2151C8DE2E';
+
+  // // // ETH
+  // const destinationChainID = 60808;
+  // const merkleTreeHook = '0x48e6c30B97748d1e2e03bf3e9FbE3890ca5f8CCA';
+  // const staticAggregationHookFactoryAddress =
+  //   '0x6D2555A8ba483CcF4409C39013F5e9a3285D3C9E';
+  // const mailBoxAddress = '0xc005dc82818d67AF737725bD4bf75435d065D239';
 
   // IPG hook
   // Deploy StorageGasOracle and set remote gas configuration
   const storageGasOracle = await deployContract('StorageGasOracle', []);
   const remoteGasConfigs = [
+    // Another chain to ETH
     {
       remoteDomain: destinationChainID, // Must change
-      tokenExchangeRate: 76825206103, // Must change
+      tokenExchangeRate: 15000000000, // Must change
       gasPrice: 20000000000, // Must change
     },
+    // // // ETH to another chain
+    // {
+    //   remoteDomain: destinationChainID, // Must change
+    //   tokenExchangeRate: 15000000000, // Must change
+    //   gasPrice: 1623532813, // Must change
+    // },
   ];
   await sendTxn(
     storageGasOracle.setRemoteGasDataConfigs(remoteGasConfigs),
