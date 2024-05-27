@@ -1,0 +1,6 @@
+{
+  "StorageGasOracle": "0x14E19334eB5156F895E786cB6b4D17c4Fe4cebB8",
+  "InterchainGasPaymaster": "0xeD18846e219be6D14229Ac430AFe2a8Ca0A72986",
+  "PausableHook": "0x17e14541D0279e3167ab5fE08734Af29C5841aeF",
+  "FallbackDomainRoutingHook": "0x6eC4690825ff345823A5C94AAD78465114CA1843"
+}

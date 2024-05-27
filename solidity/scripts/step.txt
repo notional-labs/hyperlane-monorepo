@@ -1,0 +1,61 @@
+Step 1: Depoy IPG contract 0xe3aeb0fbf7e40e27d478ff341bd832f5544fe3480556ceec0b32f349996befee
+        Initialization IPG contract 0xbca69946daa2f101c216ddd94ec4d607b15352d4fafec8802703e2c6c68f7fb2
+            (owner, beneficiary)
+        Deploy IPG Proxy 0xdb3b57d209db44badbcc0d21f940d1412cf181a16eadb900c000951e32445015
+
+Step 2:
+    Deploy StorageGasOracle
+    Set Remote Gas Domain on StorageGasOracle
+        0	_configs.remoteDomain	uint32	888888888
+        0	_configs.tokenExchangeRate	uint128	10000000000
+        0	_configs.gasPrice	uint128	100000000
+
+Step 3: Set Destination gas configs 0xab14f7e3148f1cebea525e7790b39994d72c4c89e1c1a970f31c94f442341da5
+    _configs.remoteDomain	uint32	56
+    _configs.config	tuple	0xc9a103990A8dB11b4f627bc5CD1D0c2685484Ec5,159736
+
+    remoteDomain is the remote chain
+    config is current StorageGasOracle address and gas-overhead
+
+Step 4: Call functionn deploy from unknown contract 0xd890d0bf6d3c70914128cdd0125c3f102f82f89c98c7c7cfc108232893f35d67
+    0	_values	address[]	0x48e6c30B97748d1e2e03bf3e9FbE3890ca5f8CCA (Merkle Tree Contract)
+                            0x9e6B1022bE9BBF5aFd152483DAD9b88911bC8611 (IPG Contract)
+    1	_threshold	uint8	2
+
+    => find this
+        function deploy(
+             address[] calldata _values,
+             uint8 _threshold
+         ) public returns (address)
+    of abstract contract StaticThresholdAddressSetFactory
+
+   find by deplopByteCode =>  unknown contract is StaticAggregationHookFactory
+
+Step 5: Deploy unknown contract 0xd007af47c6ea259af3ae0fccf5fce56bae0c70bba0b7f7bfa44b62fde52c465b
+
+   from deployByteCode => unknown contract is ProtocolFee
+   => deploy ProtocolFee with this parameter
+          uint256 _maxProtocolFee,
+          uint256 _protocolFee,
+          address _beneficiary,
+          address _owner
+
+Step 6: Set Required Hook in Mailbox => ProtocolFee
+Step 7: Set Default Hook Mailbox => the address that return from step 3
+
+Hooks
+// Default
+"fallbackRoutingHook": "0x571f1435613381208477ac5d6974310d88AC7cB7",
+
+// Create 0x19b2cF952b70b217c90FC408714Fbc1acD29A6A8 = 3 hook bellow, then call fallbackRoutingHook setHook
+"pausableHook": "0x3A66Dc852e56d3748838b3C27CF381105b83705b",
+"merkleTreeHook": "0x48e6c30B97748d1e2e03bf3e9FbE3890ca5f8CCA",
+"interchainGasPaymaster": "0x9e6B1022bE9BBF5aFd152483DAD9b88911bC8611",
+
+// Required
+"protocolFee": "0x8B05BF30F6247a90006c5837eA63C7905D79e6d8"
+
+// ISM
+staticMerkleRootMultisigIsmFactory
+staticMessageIdMultisigIsmFactory
+=> deploy with new val address => set default ism at mailbox

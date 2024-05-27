@@ -1,8 +1,0 @@
-{
-  "extends": "../tsconfig.json",
-  "compilerOptions": {
-    "outDir": "./dist",
-    "rootDir": "./types"
-  },
-  "exclude": ["./test", "hardhat.config.cts", "./dist"]
-}
